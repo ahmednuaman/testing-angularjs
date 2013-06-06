@@ -13,7 +13,7 @@ define(['config', 'angular'], function(cfg, A) {
     };
 
     MenuController.prototype.handleResponse = function(response) {
-      console.log(response);
+      this.$scope.menuItems = response.content.navigationItems;
     };
 
     return MenuController;
