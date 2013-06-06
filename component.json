@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "name": "testing-angular",
+  "dependencies": {
+    "angular": "git@github.com:angular/angular.js.git#v1.0.7"
+  }
+}
