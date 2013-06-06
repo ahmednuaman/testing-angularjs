@@ -1,6 +1,7 @@
 define([
   'config',
   'angular',
+  'service/menu-service',
   'controller/app-controller',
   'controller/menu-controller'
 ], function(cfg, A) {

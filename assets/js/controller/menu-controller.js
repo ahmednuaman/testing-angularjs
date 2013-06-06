@@ -1,14 +1,19 @@
 define(['config', 'angular'], function(cfg, A) {
   var MenuController = (function () {
-    MenuController.$inject = ['$scope'];
+    MenuController.$inject = ['$scope', 'MenuService'];
 
-    function MenuController($scope) {
+    function MenuController($scope, menuService) {
       this.$scope = $scope;
+      this.menuService = menuService;
       this.init();
     }
 
     MenuController.prototype.init = function() {
-      console.log(this.$scope);
+      this.menuService.fetch().then(A.bind(this, this.handleResponse));
+    };
+
+    MenuController.prototype.handleResponse = function(response) {
+      console.log(response);
     };
 
     return MenuController;
