@@ -1,0 +1,6 @@
+@import '../vendor/normalize.scss/normalize';
+@import 'compass/css3';
+@import 'partial/global';
+
+@import 'base/*.png';
+@include all-base-sprites;

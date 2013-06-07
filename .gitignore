@@ -1,5 +1,7 @@
 *.css
+.sass-cache
 node_modules
 build
+assets/img/*.png
 assets/vendor
 test/report
