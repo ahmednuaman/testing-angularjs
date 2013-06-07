@@ -1,0 +1,9 @@
+{
+  "version": "0.0.1",
+  "name": "testing-angular",
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-requirejs": "latest"
+  }
+}
