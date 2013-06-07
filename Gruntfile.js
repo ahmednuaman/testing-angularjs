@@ -1,27 +1,27 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    // compass: {
-    //   dev: {
-    //     options: {
-    //       sassDir: 'assets/css',
-    //       cssDir: '<%= compass.dev.options.sassDir %>',
-    //       outputStyle: 'nested',
-    //       noLineComments: false,
-    //       imagesDir: 'assets/img',
-    //       relativeAssets: true
-    //     }
-    //   },
-    //   prod: {
-    //     options: {
-    //       sassDir: '<%= compass.dev.options.sassDir %>',
-    //       cssDir: '<%= compass.dev.options.sassDir %>',
-    //       environment: 'production',
-    //       outputStyle: 'compressed',
-    //       imagesDir: '<%= compass.dev.options.imagesDir %>',
-    //       relativeAssets: false
-    //     }
-    //   }
-    // },
+    compass: {
+      dev: {
+        options: {
+          sassDir: 'assets/css',
+          cssDir: '<%= compass.dev.options.sassDir %>',
+          outputStyle: 'nested',
+          noLineComments: false,
+          imagesDir: 'assets/img',
+          relativeAssets: true
+        }
+      },
+      prod: {
+        options: {
+          sassDir: '<%= compass.dev.options.sassDir %>',
+          cssDir: '<%= compass.dev.options.sassDir %>',
+          environment: 'production',
+          outputStyle: 'compressed',
+          imagesDir: '<%= compass.dev.options.imagesDir %>',
+          relativeAssets: false
+        }
+      }
+    },
     copy: {
       prod: {
         files: [
@@ -80,29 +80,28 @@ module.exports = function(grunt) {
         }
       }
     },
-    // watch: {
-    //   coffee: {
-    //     files: ['<%= coffee.app.src %>'],
-    //     tasks: ['coffee']
-    //   },
-    //   compass: {
-    //     files: ['<%= compass.dev.options.sassDir %>/**/*.scss', '<%= compass.dev.options.imagesDir %>/**/*.png'],
-    //     tasks: ['compass:dev']
-    //   }
-    // }
+    watch: {
+      compass: {
+        files: [
+          '<%= compass.dev.options.sassDir %>/**/*.scss',
+          '<%= compass.dev.options.imagesDir %>/**/*.png'
+        ],
+        tasks: ['compass:dev']
+      }
+    }
   });
-  // grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-regex-replace');
 
   grunt.registerTask('default', 'compile the app and run the tests', function() {
     var done = this.async();
     var child = grunt.util.spawn({ cmd: 'karma', args: ['start', '--single-run'] }, function(err, result) {
-      // grunt.task.run([
-      //   'compass:dev',
-      // ]);
+      grunt.task.run([
+        'compass:dev',
+      ]);
 
       done();
     });
@@ -123,7 +122,7 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('package', 'build the app', function() {
+  grunt.registerTask('package', 'package the app', function() {
     var done = this.async();
     var config = {
       cmd: 'git',
@@ -139,7 +138,7 @@ module.exports = function(grunt) {
 
       grunt.task.run([
         'requirejs',
-        // 'compass:prod',
+        'compass:prod',
         'copy:prod',
         'regex-replace'
       ]);
