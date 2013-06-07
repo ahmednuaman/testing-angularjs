@@ -3,7 +3,9 @@
   "name": "testing-angular",
   "dependencies": {
     "grunt": "latest",
+    "grunt-contrib-compass": "latest",
     "grunt-contrib-copy": "latest",
-    "grunt-contrib-requirejs": "latest"
+    "grunt-contrib-requirejs": "latest",
+    "grunt-regex-replace": "latest"
   }
 }

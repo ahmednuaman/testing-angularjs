@@ -2,6 +2,7 @@
   "version": "0.0.1",
   "name": "testing-angular",
   "dependencies": {
+    "almond": "latest",
     "angular": "1.0.7",
     "angular-mocks": "1.0.7",
     "requirejs": "latest"
