@@ -10,7 +10,7 @@ files = [
   'assets/vendor/angular/angular.js',
   'assets/vendor/angular-mocks/angular-mocks.js',
   { pattern: 'assets/js/**/*.js', included: false },
-  { pattern: 'test/client/*.spec.js', included: false },
+  { pattern: 'test/client/**/*.spec.js', included: false },
   'test/client/test-main.js'
 ];
 exclude = [
@@ -27,7 +27,7 @@ junitReporter = {
 port = 9876;
 runnerPort = 9100;
 colors = true;
-logLevel = LOG_DEBUG;
+logLevel = LOG_INFO;
 autoWatch = true;
 browsers = [
   'Chrome'
