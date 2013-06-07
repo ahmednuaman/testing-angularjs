@@ -10,6 +10,7 @@ files = [
   'assets/vendor/angular/angular.js',
   'assets/vendor/angular-mocks/angular-mocks.js',
   { pattern: 'assets/js/**/*.js', included: false },
+  { pattern: 'test/client/**/*.mock.js', included: false },
   { pattern: 'test/client/**/*.spec.js', included: false },
   'test/client/test-main.js'
 ];

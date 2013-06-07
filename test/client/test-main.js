@@ -1,14 +1,15 @@
 var tests = Object.keys(window.__karma__.files).filter(function(file) {
-  return /spec\.js$/.test(file);
+  return /(mock|spec)\.js$/.test(file);
 });
 
 requirejs.config({
   baseUrl: '/base/assets/js/',
   paths: {
-    'angular': '../vendor/angular/angular'
+    angular: '../vendor/angular/angular',
+    mock: '../../test/client/mock'
   },
   shim: {
-    'angular': {
+    angular: {
       exports: 'angular'
     }
   },
