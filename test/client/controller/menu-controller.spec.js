@@ -1,16 +1,22 @@
 define([
   'config',
   'mock/menu-service.mock',
-  'service/menu-service'
+  'service/menu-service',
+  'controller/menu-controller'
 ], function(cfg, mock) {
+  var $controller;
   var $httpBackend;
+  var $scope;
+  var menuController;
   var menuService;
 
   beforeEach(module(cfg.ngApp));
 
-  describe('MenuService should make a call to the API server and return response data', function() {
+  describe('MenuController should use MenuService to fetch the menu data and then build our menu items', function() {
     beforeEach(inject(function($injector) {
+      $controller = $injector.get('$controller');
       $httpBackend = $injector.get('$httpBackend');
+      $scope = $injector.get('$rootScope');
       menuService = $injector.get('MenuService');
 
       $httpBackend.whenJSONP(mock.url)
@@ -23,15 +29,18 @@ define([
     });
 
     it('should make a call to the API', function() {
+      var scope = $scope.$new();
+
       $httpBackend.expectJSONP(mock.url);
 
-      menuService.fetch().then(function(data) {
-        expect(data).toBeDefined();
-        expect(data.content.navigationItems.length)
-          .toBe(mock.response.content.navigationItems.length);
-      }, this.fail);
+      menuController = $controller('MenuController', {
+        $scope: scope
+      });
 
       $httpBackend.flush();
+
+      expect(scope.menuItems.length)
+        .toBe(mock.response.content.navigationItems.length);
     });
   });
 });
