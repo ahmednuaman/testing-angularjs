@@ -5,7 +5,6 @@ frameworks = [
 files = [
   ANGULAR_SCENARIO,
   ANGULAR_SCENARIO_ADAPTER,
-  'assets/vendor/angular-scenario/angular-scenario.js',
   'test/e2e/**/*.step.js'
 ];
 reporters = [
@@ -18,7 +17,7 @@ junitReporter = {
 port = 9876;
 runnerPort = 9100;
 colors = true;
-logLevel = LOG_DEBUG;
+logLevel = LOG_INFO;
 autoWatch = true;
 browsers = [
   'Chrome'

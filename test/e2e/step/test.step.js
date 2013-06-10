@@ -1,9 +1,9 @@
 describe('The app', function() {
   beforeEach(function() {
-    browser.navigateTo('/index.html');
+    browser().navigateTo('/index.html');
   });
 
   it('should load a menu', function() {
-    expect(element('.menu-item').length).toBeGreaterThan(0);
+    expect(element('.menu-item').count()).toBeGreaterThan(0);
   });
 });
