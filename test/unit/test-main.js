@@ -6,7 +6,7 @@ requirejs.config({
   baseUrl: '/base/assets/js/',
   paths: {
     angular: '../vendor/angular/angular',
-    mock: '../../test/client/mock'
+    mock: '../../test/unit/mock'
   },
   shim: {
     angular: {

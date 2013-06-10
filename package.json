@@ -4,9 +4,11 @@
   "dependencies": {
     "grunt": "latest",
     "grunt-contrib-compass": "latest",
+    "grunt-contrib-connect": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-requirejs": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-karma": "latest",
     "grunt-regex-replace": "latest"
   }
 }

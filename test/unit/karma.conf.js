@@ -1,4 +1,4 @@
-basePath = '.';
+basePath = '../../';
 frameworks = [
   'jasmine'
 ];
@@ -10,9 +10,9 @@ files = [
   'assets/vendor/angular/angular.js',
   'assets/vendor/angular-mocks/angular-mocks.js',
   { pattern: 'assets/js/**/*.js', included: false },
-  { pattern: 'test/client/**/*.mock.js', included: false },
-  { pattern: 'test/client/**/*.spec.js', included: false },
-  'test/client/test-main.js'
+  { pattern: 'test/unit/**/*.mock.js', included: false },
+  { pattern: 'test/unit/**/*.spec.js', included: false },
+  'test/unit/test-main.js'
 ];
 exclude = [
   'assets/js/app.js',
@@ -23,7 +23,7 @@ reporters = [
   'junit'
 ];
 junitReporter = {
-  outputFile: 'test/report/client-results.xml'
+  outputFile: 'test/report/unit-results.xml'
 };
 port = 9876;
 runnerPort = 9100;

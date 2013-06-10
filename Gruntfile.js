@@ -22,6 +22,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    connect: {
+      dev: {
+        options: {
+          port: 8000,
+          base: '.'
+        }
+      }
+    },
     copy: {
       prod: {
         files: [
@@ -38,6 +46,16 @@ module.exports = function(grunt) {
             dest: 'build/assets/css/styles-<%= global["git-commit"] %>.css'
           }
         ]
+      }
+    },
+    karma: {
+      unit: {
+        configFile: 'test/unit/karma.conf.js',
+        singleRun: true
+      },
+      e2e: {
+        configFile: 'test/e2e/karma.conf.js',
+        singleRun: true
       }
     },
     'regex-replace': {
@@ -91,25 +109,18 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-regex-replace');
 
-  grunt.registerTask('default', 'compile the app and run the tests', function() {
-    var done = this.async();
-    var child = grunt.util.spawn({ cmd: 'karma', args: ['start', '--single-run'] }, function(err, result) {
-      grunt.task.run([
-        'compass:dev',
-      ]);
-
-      done();
-    });
-
-    child.stdout.on('data', function(data) {
-      grunt.log.write(data);
-    });
-  });
+  grunt.registerTask('default', 'compile the app and run the tests', [
+    'compass:dev',
+    'connect',
+    'karma'
+  ]);
 
   grunt.registerTask('install', 'install bower dependancies', function() {
     var done = this.async();
@@ -137,6 +148,7 @@ module.exports = function(grunt) {
       });
 
       grunt.task.run([
+        'karma',
         'requirejs',
         'compass:prod',
         'copy:prod',

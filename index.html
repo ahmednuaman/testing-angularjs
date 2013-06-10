@@ -10,7 +10,7 @@
     <div id="container" data-ng-controller="AppController">
       <div id="menu" data-ng-controller="MenuController">
         <ul>
-          <li data-ng-repeat="item in menuItems">
+          <li data-ng-repeat="item in menuItems" class="menu-item">
             <a data-ng-href="{{item.links[0].href}}">{{item.label}}</a>
           </li>
         </ul>
