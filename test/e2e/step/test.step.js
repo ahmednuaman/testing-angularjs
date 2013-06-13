@@ -1,6 +1,10 @@
 describe('The app', function() {
   beforeEach(function() {
-    browser().navigateTo('/index.html');
+    browser().navigateTo('/');
+  });
+
+  it('should be on the home page', function() {
+    expect(browser().window().path()).toBe('/home');
   });
 
   it('should load a menu', function() {

@@ -31,6 +31,7 @@ preprocessors = {
 proxies = {
   '/': 'http://localhost:8000/'
 };
+urlRoot = '/karma/';
 plugins = [
   'karma-ng-scenario',
   'karma-chrome-launcher',
