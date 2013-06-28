@@ -3,16 +3,17 @@ frameworks = [
   'ng-scenario'
 ];
 files = [
-  ANGULAR_SCENARIO,
+  // ANGULAR_SCENARIO,
+  'assets/vendor/angular-scenario/angular-scenario.js',
   ANGULAR_SCENARIO_ADAPTER,
-  'test/e2e/**/*.step.js'
+  'test/client/**/*.step.js'
 ];
 reporters = [
   'progress',
   'junit'
 ];
 junitReporter = {
-  outputFile: 'test/report/e2e-results.xml'
+  outputFile: 'test/report/client-results.xml'
 };
 port = 9876;
 runnerPort = 9100;

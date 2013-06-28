@@ -5,6 +5,7 @@
     "almond": "latest",
     "angular": "1.0.7",
     "angular-mocks": "1.0.7",
+    "angular-scenario": "1.0.7",
     "normalize.scss": "latest",
     "requirejs": "latest"
   }
