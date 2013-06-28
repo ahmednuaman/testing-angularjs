@@ -8,13 +8,7 @@
   </head>
   <body>
     <div id="container" data-ng-controller="AppController">
-      <div id="menu" data-ng-controller="MenuController">
-        <ul>
-          <li data-ng-repeat="item in menuItems" class="menu-item">
-            <a data-ng-href="{{item.links[0].href}}">{{item.label}}</a>
-          </li>
-        </ul>
-      </div>
+      <div data-ng-include="menuPartial"></div>
       <div id="view" data-ng-view></div>
     </div>
     <script src="assets/vendor/requirejs/require.js" data-main="assets/js/app"></script>

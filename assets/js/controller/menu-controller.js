@@ -1,4 +1,8 @@
-define(['config', 'angular'], function(cfg, A) {
+define([
+  'config',
+  'angular',
+  'service/menu-service'
+], function(cfg, A) {
   var MenuController = (function () {
     MenuController.$inject = ['$scope', 'MenuService'];
 
@@ -13,7 +17,7 @@ define(['config', 'angular'], function(cfg, A) {
     };
 
     MenuController.prototype.handleResponse = function(response) {
-      this.$scope.menuItems = response.content.navigationItems;
+      this.$scope.menuItems = response.data.items;
     };
 
     return MenuController;

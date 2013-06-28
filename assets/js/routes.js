@@ -1,16 +1,14 @@
 define([
   'config',
   'angular',
-  'service/menu-service',
-  'controller/app-controller',
-  'controller/menu-controller'
+  'controller/app-controller'
 ], function(cfg, A) {
   var routes = function($routeProvider, $locationProvider) {
-    $routeProvider.when('/home', {
+    $routeProvider.when('/', {
         templateUrl: '/assets/partial/home-partial.html'
       })
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/'
       });
 
     $locationProvider

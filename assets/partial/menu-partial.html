@@ -1,0 +1,7 @@
+<div id="menu" data-ng-controller="MenuController">
+  <ul>
+    <li data-ng-repeat="item in menuItems" class="menu-item">
+      <a data-ng-href="{{item.player.default}}">{{item.title}}</a>
+    </li>
+  </ul>
+</div>

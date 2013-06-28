@@ -12,7 +12,7 @@ define(['config', 'angular'], function(cfg, A) {
       var success = A.bind(this, this.handleSuccess, dfd);
       var failure = A.bind(this, this.handleFailure, dfd);
 
-      this.$http.jsonp('https://webapi-dev.acetrax.com/platform/navigation.json/A7FF7BF6-AF4E-40F9-94F5-F1A71C24D387?api_key=admin-p0wn3d&callback=JSON_CALLBACK').success(success).error(failure);
+      this.$http.jsonp('https://gdata.youtube.com/feeds/api/videos?q=skateboarding+dog&v=2&alt=jsonc&callback=JSON_CALLBACK').success(success).error(failure);
 
       return dfd.promise;
     };

@@ -1,4 +1,8 @@
-define(['config', 'angular'], function(cfg, A) {
+define([
+  'config',
+  'angular',
+  'controller/menu-controller'
+], function(cfg, A) {
   var AppController = (function () {
     AppController.$inject = ['$scope'];
 
@@ -8,7 +12,7 @@ define(['config', 'angular'], function(cfg, A) {
     }
 
     AppController.prototype.init = function() {
-      console.log(this.$scope);
+      this.$scope.menuPartial = 'assets/partial/menu-partial.html';
     };
 
     return AppController;
