@@ -27,8 +27,8 @@ define([
 
       menuService.fetch().then(function(data) {
         expect(data).toBeDefined();
-        expect(data.content.navigationItems.length)
-          .toBe(mock.response.content.navigationItems.length);
+        expect(data.data.items.length)
+          .toBe(mock.response.data.items.length);
       }, this.fail);
 
       $httpBackend.flush();

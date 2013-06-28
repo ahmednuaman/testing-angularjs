@@ -40,7 +40,7 @@ define([
       $httpBackend.flush();
 
       expect(scope.menuItems.length)
-        .toBe(mock.response.content.navigationItems.length);
+        .toBe(mock.response.data.items.length);
     });
   });
 });

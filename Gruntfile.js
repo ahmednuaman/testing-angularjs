@@ -53,8 +53,8 @@ module.exports = function(grunt) {
         configFile: 'test/unit/karma.conf.js',
         singleRun: true
       },
-      e2e: {
-        configFile: 'test/e2e/karma.conf.js',
+      client: {
+        configFile: 'test/client/karma.conf.js',
         singleRun: true
       }
     },
